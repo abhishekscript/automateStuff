@@ -1,8 +1,6 @@
 import subprocess
 import json,time,urllib2
-
 # Change confuguration below
-
 cfg = {  
 			"wait" 			: 0,
 			"sites" 		: ["hr.mantralabsglobal.com", "https://google.com" , "https://gmail.com"],
@@ -10,9 +8,7 @@ cfg = {
 			"terminal" 		: "gnome-terminal",
 			"commands"		: []	
      }
-
 # end of configuration
-
 def startPrograms():
 	print "Admin waiting time ..."
 	time.sleep(cfg['wait'])
@@ -32,4 +28,8 @@ def launchApps():
 	#print sites
 	#print browserTask
 	subprocess.call(sites)
+	subprocess.call(cfg['terminal'])
+	extraCommands = cfg['commands']
+	for x in extraCommands:
+		subprocess.call(x)
 startPrograms()
